@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dokuwiki-pod
+  labels:
+    function: app
+spec:
+  containers:
+  - name: dokuwiki-container
+    image: bitnami/dokuwiki:latest
+    ports:
+    - containerPort: 8080
