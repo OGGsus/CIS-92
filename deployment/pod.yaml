@@ -5,6 +5,10 @@ metadata:
   labels:
     function: app
 spec:
+  volumes:
+  - name: db
+    persistentVolumeClaim:
+        claimName: mysite-data
   containers:
   - name: django
     image: ghcr.io/oggsus/cis-92:milestone-6.3
@@ -12,11 +16,11 @@ spec:
     - containerPort: 8000
     resources:
       requests:
-        cpu: 250m 
+        cpu: 500m 
         memory: 512Mi
         ephemeral-storage: 10Mi
       limits:
-        cpu: 250m 
+        cpu: 500m 
         memory: 512Mi
         ephemeral-storage: 10Mi
     envFrom:
@@ -24,3 +28,6 @@ spec:
         name: mysite-config
     - secretRef:
         name: mysite-secret
+    volumeMounts:
+    - name: db
+      mountPath: /data
