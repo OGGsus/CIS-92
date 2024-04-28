@@ -1,0 +1,18 @@
+# Configuration for Postgres
+auth:
+  username: mysiteuser
+  password: this-is-a-bad-password
+  database: mysite
+  postgresPassword: use-a-gooder-passw3rd
+
+# GKE Autopilot requires requests and limits.
+primary:
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+      ephemeral-storage: "100Mi"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+      ephemeral-storage: "100Mi"
