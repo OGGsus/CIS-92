@@ -6,6 +6,6 @@ data:
     PORT: "8000" 
     STUDENT_NAME: "Jesus Gonzales"
     SITE_NAME: "*"
-    DATA_DIR: "/data"
     DEBUG: "1"
-    
+    POSTGRES_DB: "mysite"
+    POSTGRES_HOSTNAME: "postgres-postgresql"

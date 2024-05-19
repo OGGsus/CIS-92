@@ -14,8 +14,16 @@ By: Jesus Gonzales
 ### secret.yaml environment variables
 | `Variable`| `Value` | `Description` |
 | --- | --- | --- | 
-| Metadata: | mysite-secret | data from mysite | 
+| data: | mysite-secret | data from mysite | 
 | Secret_Key: | "this-is-a-bad-secret-key-you-dont-say" | Secret Key | 
+
+### values-postgres.yaml settings
+| `Variable`| `Value` | `Description` |
+| --- | --- | --- |
+| username: | mysiteuser| --- |
+| password:| this-is-a-bad-password | --- |
+| database: | --- | --- |
+
 
 ### How to deploy your application:
 `kubectl apply -f deployment`
@@ -28,4 +36,11 @@ By: Jesus Gonzales
 `python manage.py createsuperuser`
 
  ### How to delete your application:
- `kubectl delete -f deployment`
+`kubectl delete -f deployment`
+
+`Helm uninstall postgress`  (does not remove data, only the postgress container which costs money)
+
+`kubectl get all` (to make sure all containers are stopped)
+
+`kubectl get pvc`  (to make sure data is still there)
+ 
