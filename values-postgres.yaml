@@ -1,8 +1,9 @@
 
 architecture: standalone
 
-# Configuration for Postgres. Important: When you start database, these are going to be the default un,pw
-# secretDotYaml file "postgress pw" MUST match values postgressYaml password. make not in readme file
+#Important: When initializing a database, this will be the default username and password. 
+#Important: “POSTGRES_PASSWORD:'' in SECRET.YAML file MUST match values of “postgresPassword:”  in VALUES-POSTGRESS.YAML
+
 auth:
   username: mysiteuser
   password: this-is-a-bad-password

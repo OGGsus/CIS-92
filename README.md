@@ -14,8 +14,17 @@ By: Jesus Gonzales
 ### secret.yaml environment variables
 | `Variable`| `Value` | `Description` |
 | --- | --- | --- | 
-| data: | mysite-secret | data from mysite | 
-| Secret_Key: | "this-is-a-bad-secret-key-you-dont-say" | Secret Key | 
+| METADATA: | mysite-secret | data from mysite | 
+| SECRET_KEY: | "this-is-a-bad-secret-key-you-dont-say" | Secret Key | 
+| POSTGRES_USER: | "mysiteuser" | default username |
+| POSTGRES_PASSWORD: | "this-is-a-bad-password" | default password for Postgress user |
+
+
+
+Important: When initializing a database, this will be the default username and password. 
+
+Important: “POSTGRES_PASSWORD:'' in SECRET.YAML file MUST match values of “postgresPassword:”  in VALUES-POSTGRESS.YAML 
+
 
 ### values-postgres.yaml settings
 | `Variable`| `Value` | `Description` |
@@ -38,7 +47,7 @@ By: Jesus Gonzales
  ### How to delete your application:
 `kubectl delete -f deployment`
 
-`Helm uninstall postgress`  (does not remove data, only the postgress container which costs money)
+`helm uninstall postgress`  (does not remove data, only the postgress container which costs money)
 
 `kubectl get all` (to make sure all containers are stopped)
 
