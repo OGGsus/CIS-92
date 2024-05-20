@@ -25,13 +25,13 @@ Important: When initializing a database, this will be the default username and p
 
 Important: “POSTGRES_PASSWORD:'' in SECRET.YAML file MUST match values of “postgresPassword:”  in VALUES-POSTGRESS.YAML 
 
-
 ### values-postgres.yaml settings
 | `Variable`| `Value` | `Description` |
 | --- | --- | --- |
-| username: | mysiteuser| --- |
-| password:| this-is-a-bad-password | --- |
-| database: | --- | --- |
+| username: | mysiteuser | default username |
+| password: | this-is-a-bad-password | default password|
+| database: | mysite| database name |
+| postgresPassword: | this-is-a-bad-password | postgres password|
 
 
 ### How to deploy your application:
