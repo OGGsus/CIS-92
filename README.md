@@ -35,7 +35,7 @@ Important: “POSTGRES_PASSWORD:'' in SECRET.YAML file MUST match values of “p
 
 
 ### How to deploy your application:
-`kubectl apply -f deployment`
+`kubectl apply -f deployment/`
 
 ### Initilize Database:
 `kubectl exec --stdin --tty pod/mysite-pod -- /bin/bash`
@@ -45,7 +45,7 @@ Important: “POSTGRES_PASSWORD:'' in SECRET.YAML file MUST match values of “p
 `python manage.py createsuperuser`
 
  ### How to delete your application:
-`kubectl delete -f deployment`
+`kubectl delete -f deployment/`
 
 `helm uninstall postgress`  (does not remove data, only the postgress container which costs money)
 
