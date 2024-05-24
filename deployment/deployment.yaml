@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysite-deployment
+  labels:
+    function: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      function: app
+  template:
+    metadata:
+      name: mysite-pod
+      labels:
+        function: app
+    spec:
+      containers:
+      - name: django
+        image: ghcr.io/oggsus/cis-92:milestone-6.3
+        ports:
+        - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+            - name: host
+              value: localhost
+        resources:
+          requests:
+            cpu: 500m 
+            memory: 512Mi
+            ephemeral-storage: 10Mi
+          limits:
+            cpu: 500m 
+            memory: 512Mi
+            ephemeral-storage: 10Mi
+        envFrom:
+        - configMapRef:
+            name: mysite-config
+        - secretRef:
+            name: mysite-secret

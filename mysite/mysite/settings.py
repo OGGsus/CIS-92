@@ -129,4 +129,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*.cloudshell.dev']
+CSRF_TRUSTED_ORIGINS = ['https://*.cloudshell.dev', 'https://*.github.dev', 'https://localhost:8000']
